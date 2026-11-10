@@ -1,2 +1,9 @@
 allowBuilds:
-  esbuild: set this to true or false
+  esbuild: false
+permissions:
+  '@trpc/client':
+    skills: true
+  '@trpc/server':
+    skills: true
+  dotenv:
+    skills: true
