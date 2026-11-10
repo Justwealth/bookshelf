@@ -1,0 +1,49 @@
+{
+  "name": "bookshelf-school-project",
+  "version": "1.0.0",
+  "description": "Personal book tracker: Next.js, TypeScript, tRPC, Better Auth and PostgreSQL",
+  "scripts": {
+    "setup": "node scripts/setup-env.mjs",
+    "db:up": "docker compose up -d --wait",
+    "db:down": "docker compose down",
+    "db:migrate": "node --import tsx scripts/migrate.ts",
+    "dev": "concurrently --kill-others -n WEB,API \"next dev\" \"node --watch --import tsx server/index.ts\"",
+    "dev:web": "next dev",
+    "dev:api": "node --watch --import tsx server/index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "test:integration": "node --import tsx tests/integration.ts",
+    "build": "next build",
+    "start": "concurrently --kill-others -n WEB,API \"next start\" \"node --import tsx server/index.ts\"",
+    "format": "prettier --write ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@trpc/client": "11.18.0",
+    "@trpc/server": "11.18.0",
+    "better-auth": "1.7.4",
+    "dotenv": "17.4.2",
+    "next": "16.3.4",
+    "pg": "8.23.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "4.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.2",
+    "@types/pg": "8.23.1",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "concurrently": "10.0.5",
+    "prettier": "3.9.6",
+    "tsx": "4.23.13",
+    "typescript": "7.0.2"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22.0.0"
+  }
+}
